@@ -19,7 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withSchedule(function(Schedule $schedule): void {
-        $schedule->command('sitemap:full')->daily();
+        $schedule->command('sitemap:generate')->daily();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
