@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title','تماس با من')
 @section('content')
 <main class="container mx-auto px-4 py-8 md:py-12">
         <div class="bg-white p-6 md:p-10 rounded-xl shadow-md border border-gray-200 max-w-4xl mx-auto">
