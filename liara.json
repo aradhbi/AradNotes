@@ -1,0 +1,12 @@
+{
+    "laravel":{
+        "phpVersion":"8.3"
+    },
+    "disks":[
+        {
+            "name":"uploads",
+            "mountTo":"public/uploads"
+        }
+
+    ]
+}
