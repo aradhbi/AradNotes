@@ -116,7 +116,9 @@
 <script>
 const quill = new Quill('#editor', {
     modules: {
-      toolbar: '#toolbar'
+      toolbar: ['#toolbar',
+        [{ header: [1, 2,3,4,false] }],
+      ]
     },
     theme: 'snow',
     formats: [
