@@ -17,6 +17,7 @@
         <h2 class="text-2xl font-bold mb-6">افزودن پست جدید</h2>
         <form action="{{ route('admin.posts.update',$post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700">عنوان پست</label>
                 <input type="text" name="title" id="title" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" value="{{ $post->title }}" required>
@@ -73,6 +74,8 @@
                     <select class="ql-header">
                         <option value="1"></option>
                         <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
                         <option selected></option>
                     </select>
 
