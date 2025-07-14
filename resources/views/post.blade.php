@@ -1,6 +1,6 @@
 @extends('layouts.master')
+@section('title',$post->title)
 @section('extra-meta')
-   <title>{{$post->title}}</title>
     <meta name="description" content="{{$post->meta_description}}">
     <meta name="keywords" content="{{$post->meta_keywords}}">
     <meta name="author" content="آراد حبیبی">
@@ -52,6 +52,12 @@
         "dateModified": "{{ $post->updated_at->toDateString() }}"
         }
     </script>
+    <style>
+        h2{
+            font-size: larger;
+            font-weight: 600;
+        }
+    </style>
 @endsection
 @section('content')
 <main class="container mx-auto px-4 py-8 md:py-12">

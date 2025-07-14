@@ -8,9 +8,9 @@
     @yield('extra-meta')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
         body {
-            font-family: 'Inter', sans-serif; /* استفاده از فونت Inter */
+            font-family: Vazirmatn, sans-serif;
             background-color: #f8f8f8; /* رنگ پس‌زمینه روشن، کمی روشن‌تر برای ظاهر روزنامه */
         }
         /* Custom styles for a newspaper-like feel */

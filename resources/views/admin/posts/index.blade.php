@@ -20,7 +20,7 @@
             <tbody>
                 @foreach($posts as $post)
                 <tr class="hover:bg-gray-100 w-full min-h-32">
-                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ env("APP_URL") ."/storage//" .  $post->image }} " alt=""></td>
+                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ env("APP_URL") ."/uploads//" .  $post->image }} " alt=""></td>
                     <td class="border px-4 py-2">{{ $post->title }}</td>
                     <td class="border px-4 py-2">
                         @if($post->is_published)
@@ -29,7 +29,7 @@
                         <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset">منتشر نشده</span>
                         @endif
                     </td>
-                    <td class="border px-4 py-2">دسته بندی</td>
+                    <td class="border px-4 py-2">{{ $post->category?->name ?? "بدون دسته بندی" }}</td>
                     <td class="border px-4 py-2">
                         <a href="{{ route('admin.posts.edit', $post->id) }}" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-600/10 ring-inset">ادیت</a>
                         <a href="{{ route('admin.posts.destroy', $post->id) }}" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset">حذف</a>
