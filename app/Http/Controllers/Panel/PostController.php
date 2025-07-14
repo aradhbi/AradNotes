@@ -61,16 +61,16 @@ class PostController extends Controller
             'meta_description' => $request->meta_description,
             'meta_keywords' => $request->meta_keywords,
         ]);
-        $workerUrl = 'https://telegram-proxy.aradhabibi1387.workers.dev/';
-        $token = '7121855189:AAHBasSgcIcBlG18kQ-WNnAmyhjN_U1nLn0';
-        $chatId = '@aradnotes';
-        $cleanContent = strip_tags($request->content, '<b><i><u><a><code><pre>'); // فقط تگ‌های مجاز
-        Http::post("{$workerUrl}bot{$token}/sendMessage", [
+        // $workerUrl = 'https://telegram-proxy.aradhabibi1387.workers.dev/';
+        // $token = '7121855189:AAHBasSgcIcBlG18kQ-WNnAmyhjN_U1nLn0';
+        // $chatId = '@aradnotes';
+        // $cleanContent = strip_tags($request->content, '<b><i><u><a><code><pre>'); // فقط تگ‌های مجاز
+        // Http::post("{$workerUrl}bot{$token}/sendMessage", [
 
-            'chat_id' => $chatId,
-            'text' => "{$request->title}\n\n{$cleanContent}",
-            "parse_mode"=>"HTML"
-        ]);
+        //     'chat_id' => $chatId,
+        //     'text' => "{$request->title}\n\n{$cleanContent}",
+        //     "parse_mode"=>"HTML"
+        // ]);
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
 
     }
