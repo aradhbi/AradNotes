@@ -32,6 +32,7 @@ class ProjectsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'required|image|max:20480',
+            'link' => 'required|string|max:255',
             'technologies' => 'required|string|max:255',
             'info' => 'required|string|max:255',
 
@@ -46,6 +47,7 @@ class ProjectsController extends Controller
         Project::create([
             'title' => $request->title,
             'info' => $request->info,
+            'link' => $request->link,
             'technologies' => $request->technologies,
             'image' => $imagePath,
         ]);
@@ -81,6 +83,7 @@ class ProjectsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'required|image|max:20480',
+            'link' => 'required|string|max:255',
             'technologies' => 'required|string|max:255',
             'info' => 'required|string|max:255',
 
@@ -95,6 +98,7 @@ class ProjectsController extends Controller
         $project->update([
             'title' => $request->title,
             'info' => $request->info,
+            'link' => $request->link,
             'technologies' => $request->technologies,
             'image' => $imagePath,
         ]);

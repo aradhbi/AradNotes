@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
+            $table->string('link');
             $table->text('technologies');
             $table->text('info');
             $table->timestamps();

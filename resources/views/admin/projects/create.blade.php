@@ -10,6 +10,8 @@
                 <input type="text" name="title" id="title" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
             </div>
             <div class="mb-4">
+                <label for="desc" class="block text-sm font-medium text-gray-700">لینک </label>
+                <input type="text" name="link" id="link" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
                 <label for="desc" class="block text-sm font-medium text-gray-700">توضیحات </label>
                 <input type="text" name="info" id="desc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
                 <label for="keywords" class="block text-sm font-medium text-gray-700">تکنولوژی</label>
