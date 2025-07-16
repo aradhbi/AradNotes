@@ -7,6 +7,7 @@ use App\Http\Controllers\Panel\PostController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\blogController;
+use App\Http\Controllers\Panel\ProjectsController;
 use App\Models\Post;
 
 Route::get('/', function () {
@@ -60,6 +61,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('admin/about', [AboutController::class, 'index'])->name('admin.about');
     Route::post('admin/about', [AboutController::class, 'store'])->name('admin.about.store');
     Route::put('admin/about/update-all', [AboutController::class, 'updateSkillsAndInterests'])->name('admin.about.update_all');
+    // ----------------------projects----------------------------
+    Route::get('projects', [ProjectsController::class,'index'])->name('admin.projects.index');
+    Route::get('projects/create', [ProjectsController::class,'create'])->name('admin.projects.create');
+    Route::post('projects', [ProjectsController::class,'store'])->name('admin.projects.store');
+    Route::get('projects/{project}/edit', [ProjectsController::class,'edit'])->name('admin.projects.edit');
+    Route::put('projects/update/{project}', [ProjectsController::class,'update'])->name('admin.projects.update');
+    Route::get('projects/{project}', [ProjectsController::class,'destroy'])->name('admin.projects.destroy');
 
 
 });
