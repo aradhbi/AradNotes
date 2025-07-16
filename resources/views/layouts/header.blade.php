@@ -7,11 +7,12 @@
                 <ul class="flex space-x-6 space-x-reverse">
                     @auth
                         @if (auth()->user()->role === 'admin')
-                        <li><a href="{{ route('admin.index') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">پنل</a></li>    
+                        <li><a href="{{ route('admin.index') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">پنل</a></li>
                         @endif
                     @endauth
                     <li><a href="{{ route('index') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">خانه</a></li>
-                    <li><a href="{{ route('about') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">درباره من</a></li>
+                    <li><a href="{{ route('projects') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">پروژه‌های‌من</a></li>
+                    <li><a href="{{ route('about') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">درباره‌من</a></li>
                     <li><a href="{{ route('contact') }}" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 rounded-md px-3 py-1">تماس</a></li>
                 </ul>
             </nav>

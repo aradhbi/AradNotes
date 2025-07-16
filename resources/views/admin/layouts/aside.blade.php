@@ -7,6 +7,7 @@
                 <!-- These links would navigate to separate pages in a Laravel app -->
                 <li><a href="{{ route('admin.posts.index') }}" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="posts"><i class="fas fa-pencil-alt ml-3"></i> مدیریت پست‌ها</a></li>
                 <li><a href="{{ route('admin.categories') }}" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="categories"><i class="fas fa-tags ml-3"></i> مدیریت دسته‌بندی‌ها</a></li>
+                <li><a href="{{ route('admin.projects.index') }}" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="categories"><i class="fas fa-tags ml-3"></i> مدیریت پروژه‌ها</a></li>
                 <li><a href="{{ route('admin.about') }}" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="about"><i class="fas fa-user-circle ml-3"></i> مدیریت درباره من</a></li>
                 <li><a href="#" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="contact"><i class="fas fa-address-book ml-3"></i> مدیریت تماس با من</a></li>
                 <li><a href="{{ route('logout') }}" class="nav-link flex items-center py-3 px-4 mb-2 rounded-lg font-semibold transition-colors duration-300" data-target="logout"><i class="fas fa-sign-out-alt ml-3"></i> خروج</a></li>
