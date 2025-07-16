@@ -7,48 +7,22 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            @foreach ($projects as $project)
-                <a href="" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
-                    <img src="https://placehold.co/400x400/cccccc/333333?text=وبسایت+فروشگاهی" alt="تصویر پروژه ۱" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
-                    <h2 class="text-xl font-bold text-gray-900 mb-2">وبسایت فروشگاهی</h2>
-                    <p class="text-gray-700 text-base mb-4">
-                        طراحی و پیاده‌سازی یک وبسایت فروشگاهی کامل با قابلیت‌های مدیریت محصول، سبد خرید و پرداخت آنلاین.
-                    </p>
-                    <span class="text-sm text-gray-500 mt-auto">تکنولوژی: Laravel, Vue.js</span>
-                </a>
-            @endforeach
-            <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
-                <img src="https://placehold.co/400x400/cccccc/333333?text=وبسایت+فروشگاهی" alt="تصویر پروژه ۱" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">وبسایت فروشگاهی</h2>
-                <p class="text-gray-700 text-base mb-4">
-                    طراحی و پیاده‌سازی یک وبسایت فروشگاهی کامل با قابلیت‌های مدیریت محصول، سبد خرید و پرداخت آنلاین.
-                </p>
-                <span class="text-sm text-gray-500 mt-auto">تکنولوژی: Laravel, Vue.js</span>
-            </a>
-            <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
-                <img src="https://placehold.co/400x400/cccccc/333333?text=وبسایت+فروشگاهی" alt="تصویر پروژه ۱" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">وبسایت فروشگاهی</h2>
-                <p class="text-gray-700 text-base mb-4">
-                    طراحی و پیاده‌سازی یک وبسایت فروشگاهی کامل با قابلیت‌های مدیریت محصول، سبد خرید و پرداخت آنلاین.
-                </p>
-                <span class="text-sm text-gray-500 mt-auto">تکنولوژی: Laravel, Vue.js</span>
-            </a>
-            <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
-                <img src="https://placehold.co/400x400/cccccc/333333?text=وبسایت+فروشگاهی" alt="تصویر پروژه ۱" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">وبسایت فروشگاهی</h2>
-                <p class="text-gray-700 text-base mb-4">
-                    طراحی و پیاده‌سازی یک وبسایت فروشگاهی کامل با قابلیت‌های مدیریت محصول، سبد خرید و پرداخت آنلاین.
-                </p>
-                <span class="text-sm text-gray-500 mt-auto">تکنولوژی: Laravel, Vue.js</span>
-            </a>
-            <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
-                <img src="https://placehold.co/400x400/cccccc/333333?text=وبسایت+فروشگاهی" alt="تصویر پروژه ۱" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">وبسایت فروشگاهی</h2>
-                <p class="text-gray-700 text-base mb-4">
-                    طراحی و پیاده‌سازی یک وبسایت فروشگاهی کامل با قابلیت‌های مدیریت محصول، سبد خرید و پرداخت آنلاین.
-                </p>
-                <span class="text-sm text-gray-500 mt-auto">تکنولوژی: Laravel, Vue.js</span>
-            </a>
+            @if (isset($projects))
+                @foreach ($projects as $project)
+                    <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
+                        <img src="{{env("APP_URL") ."/uploads//" .  $project->image }}" alt="{{ $project->title }}" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
+                        <h2 class="text-xl font-bold text-gray-900 mb-2">{{ $project->title }}</h2>
+                        <p class="text-gray-700 text-base mb-4">
+                            {{ $project->info }}
+                        </p>
+                        <span class="text-sm text-gray-500 mt-auto">تکنولوژی: {{ $project->technologies }}</span>
+                    </a>
+                @endforeach
+            @else
+                <p>پروژه ای یافت نشد</p>
+            @endif
+
+
         </div>
     </main>
 @endsection

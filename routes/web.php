@@ -5,6 +5,7 @@ use App\Http\Controllers\Panel\AboutController;
 use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\PostController;
 use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\blogController;
 use App\Http\Controllers\Panel\ProjectsController;
@@ -13,8 +14,6 @@ use App\Models\Post;
 Route::get('/', function () {
     $posts = Post::where('is_published', true)
             ->orderBy('created_at', 'desc')->paginate(4);
-
-
     return view('index',compact('posts'));
 })->name('index');
 
@@ -31,7 +30,8 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::get('/projects',function(){
-    return view('projects');
+    $projects = Project::orderBy('created_at', 'desc');
+    return view('projects',compact('projects'));
 })->name('projects');
 
 Route::get('/login', [LoginController::class,"showLoginForm"])->name('login');
