@@ -29,6 +29,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+Route::get('/projects',function(){
+    return view('projects');
+})->name('projects');
 
 Route::get('/login', [LoginController::class,"showLoginForm"])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
