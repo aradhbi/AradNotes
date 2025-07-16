@@ -30,7 +30,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::get('/projects',function(){
-    $projects = Project::orderBy('created_at', 'desc');
+    $projects = Project::orderBy('created_at', 'desc')->get();
     return view('projects',compact('projects'));
 })->name('projects');
 

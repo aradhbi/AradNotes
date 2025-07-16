@@ -9,7 +9,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
             @if (isset($projects))
                 @foreach ($projects as $project)
-                    <a href="#" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
+                    <a href="{{ $project->link }}" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-start transition-all duration-200 ease-in-out hover:-translate-y-1.5 hover:shadow-lg">
                         <img src="{{env("APP_URL") ."/uploads//" .  $project->image }}" alt="{{ $project->title }}" class="w-full h-auto object-cover rounded-lg mb-4 border border-gray-200">
                         <h2 class="text-xl font-bold text-gray-900 mb-2">{{ $project->title }}</h2>
                         <p class="text-gray-700 text-base mb-4">
