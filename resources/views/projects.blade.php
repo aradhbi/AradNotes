@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title','پروژه های من')
 @section('content')
 <main class="container mx-auto px-4 py-8 md:py-12">
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">پروژه‌های من</h1>
