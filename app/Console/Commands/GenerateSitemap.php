@@ -31,6 +31,7 @@ class GenerateSitemap extends Command
         $staticSitemap = Sitemap::create()
             ->add(Url::create(route('index'))->setPriority(1))
             ->add(Url::create(route('about')))
+            ->add(Url::create(route('projects')))
             ->add(Url::create(route('contact')));
 
         $staticPath = "$sitemapPath/page-sitemap.xml";
