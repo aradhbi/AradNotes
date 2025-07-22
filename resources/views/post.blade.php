@@ -85,10 +85,8 @@
             font-size: 0.9rem; /* اندازه فونت کمی کوچک‌تر شد */
             font-weight: normal; /* ضخامت فونت به حالت عادی تنظیم شد */
         }
-
-        /* استایل‌دهی برای خطی که دارای ویژگی data-language="plain" است (مانند "php") */
         .ql-code-block[data-language="plain"] {
-            color: #61afef; /* رنگ آبی برای برجسته‌سازی زبان */
+            color: #61afef;
             font-weight: bold; /* پررنگ کردن متن */
             padding-bottom: 0.5rem; /* فاصله پایین */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* خط جداکننده زیر زبان */
@@ -105,23 +103,49 @@
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
         }
-
-        /* استایل‌دهی برای خطوط کد واقعی */
         .ql-code-block:not([data-language="plain"]):not(:nth-child(2)) {
-            color: #abb2bf; /* رنگ متن پیش‌فرض برای کد */
+            color: #abb2bf;
         }
-
-        /* استایل‌دهی هنگام هاور روی خطوط کد (اختیاری) */
         .ql-code-block:hover {
-            background-color: rgba(255, 255, 255, 0.05); /* هایلایت خفیف هنگام هاور */
+            background-color: rgba(255, 255, 255, 0.05);
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            text-align: center;
+            font-family: vazirmatn;
+            border-radius: 1rem; /* جایگزین rounded-lg */
+            overflow: hidden; /* جایگزین overflow-hidden */
+            margin-bottom:1rem;
+        }
+        thead {
 
-        /* استایل‌دهی برای کلمات کلیدی (مثال: function, return) - بدون تغییر HTML، این کار دشوار است.
-           اینجا فقط یک مثال است و نیاز به پردازشگر کد یا کلاس‌های بیشتر دارد. */
-        /* این بخش فقط یک مثال مفهومی است و در این HTML کار نمی‌کند */
-        /* .ql-code-block span.keyword { color: #c678dd; } */
-        /* .ql-code-block span.string { color: #98c379; } */
-        /* .ql-code-block span.variable { color: #e06c75; } */
+            text-align:center;
+            background-color: #45a2ff;
+            color: #e5e7eb;
+            text-transform: uppercase;
+        }
+        thead td {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            font-weight: bold;
+            text-align: center;
+        }
+        tbody {
+            background-color: #f0f2f4;
+            color: #6b7280;
+        }
+        tbody tr {
+            transition: background-color 0.3s;
+        }
+        tbody tr:hover {
+            background-color: #e2e8f0;
+        }
+        tbody td {
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
     </style>
 @endsection
 @section('content')
