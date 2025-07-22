@@ -41,10 +41,10 @@
                             <i class="fas fa-envelope text-blue-500 ml-3"></i> ایمیل: <a href="mailto:your.email@example.com" class="text-blue-600 hover:underline">me@aradnotes.ir</a>
                         </p>
                         <p class="flex items-center">
-                            <i class="fab fa-linkedin text-blue-500 ml-3"></i> لینکدین: <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-blue-600 hover:underline">t.me/arad_hbi</a>
+                            <i class="fab fa-linkedin text-blue-500 ml-3"></i> تلگرام: <a href="https://t.me/arad_hbi" target="_blank" class="text-blue-600 hover:underline">t.me/arad_hbi</a>
                         </p>
                         <p class="flex items-center">
-                            <i class="fab fa-twitter text-blue-500 ml-3"></i> توییتر: <a href="https://twitter.com/yourprofile" target="_blank" class="text-blue-600 hover:underline">twitter.com/arad_hbi</a>
+                            <i class="fab fa-twitter text-blue-500 ml-3"></i> توییتر: <a href="https://x.com/arad_hbi" target="_blank" class="text-blue-600 hover:underline">x.com/arad_hbi</a>
                         </p>
                     </div>
                 </div>
