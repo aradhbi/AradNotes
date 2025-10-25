@@ -20,7 +20,7 @@
             <tbody>
                 @foreach($posts as $post)
                 <tr class="hover:bg-gray-100 w-full min-h-32">
-                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ env("APP_URL") ."/uploads//" .  $post->image }} " alt=""></td>
+                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ Storage::disk('s3')->url($post->image) }} " alt=""></td>
                     <td class="border px-4 py-2">{{ $post->title }}</td>
                     <td class="border px-4 py-2">
                         @if($post->is_published)

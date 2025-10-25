@@ -39,7 +39,7 @@ class ProjectsController extends Controller
         ]);
         // image upload if exists stroage/app/public/posts
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('projects', 'uploads');
+            $imagePath = $request->file('image')->store('projects', 's3');
         } else {
             $imagePath = null;
         }
@@ -90,7 +90,7 @@ class ProjectsController extends Controller
         ]);
         // image upload if exists stroage/app/public/posts
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('projects', 'uploads');
+            $imagePath = $request->file('image')->store('projects', 's3');
         } else {
             $imagePath = $project->image; // keep the old image if no new one is uploaded
         }

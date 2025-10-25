@@ -14,7 +14,7 @@
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:site_name" content="Arad Notes📒 - آراد حبیبی">
     <!-- OG Image -->
-    <meta property="og:image" content="{{url("/uploads/images/" . $post->image)}}">
+    <meta property="og:image" content="{{ Storage::disk('s3')->url($post->image) }}">
     <meta property="og:image:alt" content="{{$post->title}}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="{{$post->title}}">
     <meta name="twitter:description" content="
         {{$post->meta_description}}">
-    <meta name="twitter:image" content="{{url("/uploads/images/" . $post->image)}}">
+    <meta name="twitter:image" content="{{ Storage::disk('s3')->url($post->image) }}">
     <meta name="twitter:site" content="{{env("APP_URL")}}">
     <script type="application/ld+json">
     {
@@ -34,7 +34,7 @@
         },
         "headline": "{{ $post->title }}",
         "description": "{{ $post->meta_description }}",
-        "image": "{{ url('/uploads/images/' . $post->image) }}",
+        "image": "{{ Storage::disk('s3')->url($post->image) }}",
         "author": {
             "@type": "Person",
             "name": "آراد حبیبی,
@@ -162,7 +162,7 @@
                     </p>
 
                     <!-- تصویر اصلی مقاله -->
-                    <img src="{{env("APP_URL") ."/uploads//" .  $post->image }}" alt="{{ $post->title }}" class="w-full min-h-80 max-h-96 rounded-lg mb-8 shadow-md object-cover">
+                    <img src="{{ Storage::disk('s3')->url($post->image) }}" alt="{{ $post->title }}" class="w-full min-h-80 max-h-96 rounded-lg mb-8 shadow-md object-cover">
 
                     <!-- محتوای کامل مقاله -->
                     <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-3">

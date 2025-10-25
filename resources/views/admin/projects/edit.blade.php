@@ -23,7 +23,7 @@
                 <label for="image" class="block text-sm font-medium text-gray-700">تصویر پست</label>
                 <input type="file" name="image" id="image" accept="image/*" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 @if(!empty($project?->image))
-                    <img src="{{ asset('storage/' . $project->image) }}" alt="Current Image" class="w-32 mt-2 rounded">
+                    <img src="{{ Storage::disk('s3')->url($project->image) }}" alt="Current Image" class="w-32 mt-2 rounded">
                 @endif
             </div>
 

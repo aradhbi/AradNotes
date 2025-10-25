@@ -3,7 +3,7 @@
                 <div class="bg-white p-6 rounded-xl shadow-md border border-gray-300">
                     @if (isset($about))
                         <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2 border-gray-300">درباره من</h3>
-                        <img src="{{env("APP_URL") ."/uploads//" .  $about->image }}" alt="تصویر پروفایل" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-2 border-gray-400 p-1">
+                        <img src="{{ Storage::disk('s3')->url($about->image) }}" alt="تصویر پروفایل" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-sm border-2 border-gray-400 p-1">
                         <p class="text-gray-700 text-center leading-relaxed">
                             {{ $about->description }}
                         </p>

@@ -29,7 +29,7 @@ class AboutController extends Controller
         $about->title = $request->input('title');
         $about->description = $request->input('description');
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('about', 'uploads');
+            $imagePath = $request->file('image')->store('about', 's3');
             $about->image = $imagePath;
         }
         $about->save();

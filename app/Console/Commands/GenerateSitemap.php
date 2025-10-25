@@ -79,8 +79,9 @@ class GenerateSitemap extends Command
 
                     // اگر تصویر هست و در public/uploads قرار داره
                     if ($post->image) {
-                        $url->addImage(asset('uploads/' . $post->image));
+                        $url->addImage(Storage::disk('s3')->url($post->image));
                     }
+
 
                     $postSitemap->add($url);
                 }

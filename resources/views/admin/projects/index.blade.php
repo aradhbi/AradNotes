@@ -18,7 +18,7 @@
             <tbody>
                 @foreach($projects as $project)
                 <tr class="hover:bg-gray-100 w-full min-h-32">
-                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ env("APP_URL") ."/uploads//" .  $project->image }} " alt=""></td>
+                    <td class="border px-4 py-2 w-24 h-24 object-cover col"><img src="{{ Storage::disk('s3')->url($project->image) }} " alt=""></td>
                     <td class="border px-4 py-2">{{ $project->title }}</td>
                     <td class="border px-4 py-2">
                         <a href="{{ route('admin.projects.edit', $project->id) }}" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-yellow-600/10 ring-inset">ادیت</a>

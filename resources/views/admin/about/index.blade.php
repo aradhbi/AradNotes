@@ -18,7 +18,7 @@
                 <label for="image" class="block font-medium">تصویر</label>
                 <input type="file" name="image" id="image" class="form-input w-full rounded-lg py-3 px-2 shadow-md">
                 @if(!empty($about?->image))
-                    <img src="{{ asset('uploads/' . $about->image) }}" alt="Current Image" class="w-32 mt-2 rounded">
+                    <img src="{{ Storage::disk('s3')->url($about->image) }}" alt="Current Image" class="w-32 mt-2 rounded">
                 @endif
             </div>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">

@@ -6,7 +6,7 @@
             <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
                 <!-- تصویر پروفایل -->
                 <div class="flex-shrink-0">
-                    <img src="{{env("APP_URL") ."/uploads//" .  $about->image }}" alt="{{ $about->title }}" class="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-blue-400 p-1">
+                    <img src="{{ Storage::disk('s3')->url($about->image) }}" alt="{{ $about->title }}" class="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-blue-400 p-1">
                 </div>
                 <!-- متن درباره من -->
                 <div class="text-center md:text-right flex-grow">
