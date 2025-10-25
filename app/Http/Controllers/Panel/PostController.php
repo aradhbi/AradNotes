@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -126,7 +127,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->image) {
+            Storage::disk('s3')->delete($post->image);
+        }
         $post->delete();
+        // remove image post from s3
+        
+
         return redirect()->route('admin.posts.index')->with('success', 'Post deleted successfully.');
     }
 }

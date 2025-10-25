@@ -6,14 +6,25 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Cookie;
 
 class blogController extends Controller
 {
 
-    public function post(Post $post)
+    public function post(Request $request,Post $post)
     {
-        // incerment the view count
-        $post->increment('views');
+        $minutes = 24 * 60; // 24 ساعت
+
+        // کلید کوکی برای هر پست
+        $cookieName = 'viewed_post_' . $post->id;
+
+        // اگر کوکی موجود نباشه، ویو شمارش می‌شه
+        if (! $request->hasCookie($cookieName)) {
+            $post->increment('views');
+
+            // کوکی می‌ذاریم تا 24 ساعت اعتبار داشته باشه
+            Cookie::queue($cookieName, true, $minutes);
+        }
 
         return view('post', compact('post'));
     }

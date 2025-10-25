@@ -26,31 +26,32 @@
     <meta name="twitter:site" content="{{env("APP_URL")}}">
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
+        "@@context": "https://schema.org",
+        "@@type": "Article",
         "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{ url()->current() }}"
+            "@@type": "WebPage",
+            "@@id": "{{ url()->current() }}"
         },
         "headline": "{{ $post->title }}",
         "description": "{{ $post->meta_description }}",
         "image": "{{ Storage::disk('s3')->url($post->image) }}",
         "author": {
-            "@type": "Person",
-            "name": "آراد حبیبی,
-            "url": "https://{{env("APP_URL")}}/about"
+            "@@type": "Person",
+            "name": "آراد حبیبی",
+            "url": "https://{{ env('APP_URL') }}/about"
         },
+
         "publisher": {
-            "@type": "Organization",
+            "@@type": "Organization",
             "name": "آراد حبیبی",
             "logo": {
-            "@type": "ImageObject",
+            "@@type": "ImageObject",
             "url": "{{ url('logo.ico') }}"
             }
         },
         "datePublished": "{{ $post->created_at->toDateString() }}",
         "dateModified": "{{ $post->updated_at->toDateString() }}"
-        }
+    }
     </script>
     <style>
         h2{
