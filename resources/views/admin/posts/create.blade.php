@@ -1,14 +1,8 @@
 @extends('admin.layouts.master')
 @section('extralinks')
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
-<style>
-  .ql-editor[dir="rtl"] {
-    direction: rtl;
-    text-align: right;
-  }
-</style>
+<link rel=stylesheet href={{asset('assets/richtexteditor/rte_theme_default.css')}}>
+<script src={{asset('assets/richtexteditor/rte.js')}}></script>
+<script src='{{asset('assets/richtexteditor/plugins/all_plugins.js')}}'></script>
 
 @endsection
 @section('content')
@@ -45,56 +39,8 @@
             </div>
             <div class="mb-4">
                 <label for="content" class="block text-sm font-medium text-gray-700">محتوای پست</label>
-                <div id="toolbar">
-                    <!-- Formatting -->
-                    <select class="ql-font"></select>
-                    <select class="ql-size"></select>
-                    <button class="ql-bold"></button>
-                    <button class="ql-italic"></button>
-                    <button class="ql-underline"></button>
-                    <button class="ql-strike"></button>
-                    <button class="ql-code"></button>
-                    <button class="ql-link"></button>
-
-                    <!-- Color -->
-                    <select class="ql-color"></select>
-                    <select class="ql-background"></select>
-
-                    <!-- Script -->
-                    <button class="ql-script" value="sub"></button>
-                    <button class="ql-script" value="super"></button>
-
-                    <!-- Block -->
-                    <button class="ql-blockquote"></button>
-                    <button class="ql-code-block"></button>
-                    <select class="ql-header">
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option selected></option>
-                    </select>
-
-                    <!-- Lists & Indent -->
-                    <button class="ql-list" value="ordered"></button>
-                    <button class="ql-list" value="bullet"></button>
-                    <button class="ql-indent" value="-1"></button>
-                    <button class="ql-indent" value="+1"></button>
-
-                    <!-- Direction & Align -->
-                    <button class="ql-direction" value="rtl"></button>
-                    <select class="ql-align"></select>
-
-                    <!-- Media -->
-                    <button class="ql-image"></button>
-                    <button class="ql-video"></button>
-                    <button class="ql-formula"></button>
-
-                    <!-- Clean -->
-                    <button class="ql-clean"></button>
-                    </div>
-                <div id="editor" class="mt-1"></div>
-                <input type="hidden" name="content" id="content-input">
+                <textarea id="inp_editor1" name="content"></textarea>
+                {{-- <input type="hidden" name="content" id="content-input"> --}}
             </div>
             <div class="mb-4">
                 {{-- published status --}}
@@ -112,30 +58,7 @@
 </section>
 @endsection
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 <script>
-const quill = new Quill('#editor', {
-    modules: {
-      toolbar: '#toolbar',
-    },
-    theme: 'snow',
-    formats: [
-      'background', 'bold', 'color', 'font', 'code', 'italic', 'link', 'size',
-      'strike', 'script', 'underline', 'blockquote', 'header', 'indent', 'list',
-      'align', 'direction', 'code-block', 'formula', 'image', 'video'
-    ]
-  });
-
-  // پیش‌فرض RTL
-  quill.format('direction', 'rtl');
-  quill.format('align', 'right');
-    // موقع ارسال فرم مقدار quill رو بریز داخل hidden input
-    const form = document.querySelector('form');
-    const contentInput = document.querySelector('#content-input');
-
-    form.addEventListener('submit', function () {
-        const html = quill.root.innerHTML;
-        contentInput.value = html;
-    });
+    var editor1 = new RichTextEditor("#inp_editor1");
 </script>
 @endsection

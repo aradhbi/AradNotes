@@ -57,6 +57,95 @@
             font-size: larger;
             font-weight: 600;
         }
+        h3{
+            font-size: medium;
+            font-weight: 600;
+        }
+        /* استایل‌دهی به کانتینر اصلی بلوک کد */
+        .ql-code-block-container {
+            background-color: #282c34; /* رنگ پس‌زمینه اصلی برای تم تیره (مشابه Atom One Dark) */
+            color: #abb2bf; /* رنگ متن پیش‌فرض */
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace; /* فونت مونو‌اسپیس برای کد */
+            padding: 1.5rem; /* فاصله داخلی */
+            border-radius: 0.5rem; /* گوشه‌های گرد */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* سایه برای عمق بیشتر */
+            /* overflow-x: auto; /* برای خطوط طولانی، اسکرول افقی را فعال می‌کند - با white-space: pre-wrap دیگر نیازی نیست */
+            direction: ltr; /* اطمینان از جهت‌دهی چپ به راست برای کد */
+            max-width: 90%; /* حداکثر عرض برای ریسپانسیو بودن */
+            width: 100%; /* عرض کامل در داخل حداکثر عرض */
+        }
+
+        /* استایل‌دهی به هر خط کد */
+        .ql-code-block {
+            line-height: 1.6; /* ارتفاع خط برای خوانایی بهتر */
+            white-space: pre-wrap; /* خطوط طولانی اکنون Wrap می‌شوند */
+            word-break: break-word; /* اطمینان از شکستن کلمات طولانی برای جلوگیری از سرریز */
+            padding-left: 0.5rem; /* کمی تورفتگی برای خطوط کد */
+            transition: background-color 0.2s ease; /* انیمیشن برای تغییر رنگ پس‌زمینه */
+            font-size: 0.9rem; /* اندازه فونت کمی کوچک‌تر شد */
+            font-weight: normal; /* ضخامت فونت به حالت عادی تنظیم شد */
+        }
+        .ql-code-block[data-language="plain"] {
+            color: #61afef;
+            font-weight: bold; /* پررنگ کردن متن */
+            padding-bottom: 0.5rem; /* فاصله پایین */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* خط جداکننده زیر زبان */
+            margin-bottom: 0.5rem; /* فاصله از خطوط بعدی */
+            text-transform: uppercase; /* تبدیل به حروف بزرگ */
+            width: 100%; /* اطمینان از اینکه خط جداکننده تمام عرض را پوشش می‌دهد */
+            box-sizing: border-box; /* برای محاسبه صحیح عرض با در نظر گرفتن padding */
+        }
+
+        /* استایل‌دهی برای خط "CopyEdit" (اگر بخواهیم آن را متمایز کنیم) */
+        .ql-code-block:nth-child(2) { /* این انتخابگر دومین ql-code-block را هدف قرار می‌دهد */
+            color: #c678dd; /* رنگ بنفش برای برجسته‌سازی (مثلاً برای عملیات) */
+            font-style: italic; /* ایتالیک کردن متن */
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .ql-code-block:not([data-language="plain"]):not(:nth-child(2)) {
+            color: #abb2bf;
+        }
+        .ql-code-block:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            text-align: center;
+            font-family: vazirmatn;
+            border-radius: 1rem; /* جایگزین rounded-lg */
+            overflow: hidden; /* جایگزین overflow-hidden */
+            margin-bottom:1rem;
+        }
+        thead {
+
+            text-align:center;
+            background-color: #45a2ff;
+            color: #e5e7eb;
+            text-transform: uppercase;
+        }
+        thead td {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            font-weight: bold;
+            text-align: center;
+        }
+        tbody {
+            background-color: #f0f2f4;
+            color: #6b7280;
+        }
+        tbody tr {
+            transition: background-color 0.3s;
+        }
+        tbody tr:hover {
+            background-color: #e2e8f0;
+        }
+        tbody td {
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
     </style>
 @endsection
 @section('content')
@@ -76,7 +165,7 @@
                     <img src="{{env("APP_URL") ."/uploads//" .  $post->image }}" alt="{{ $post->title }}" class="w-full min-h-80 max-h-96 rounded-lg mb-8 shadow-md object-cover">
 
                     <!-- محتوای کامل مقاله -->
-                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-3">
                         {!! $post->content !!}
                     </div>
                 </article>
